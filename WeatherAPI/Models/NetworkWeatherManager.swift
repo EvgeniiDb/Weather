@@ -8,6 +8,9 @@
 import Foundation
 
 struct NetworkWeatherManager {
+    
+    var onCompletion: ((CurrentWeather) -> Void)?
+    
     func fetchCurrentWeather(forCity city: String) {
         
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)"
@@ -17,8 +20,9 @@ struct NetworkWeatherManager {
             if let data = data {
 //                let dataString = String(data: data, encoding: .utf8) //отображаем JSON в виде строки
 //                print(dataString!)                                   //и распечатываем его в консоль
-                let currentWeather = self.parseJSON(withData: data)
-                
+                if let currentWeather = self.parseJSON(withData: data) {
+                    self.onCompletion?(currentWeather)
+                }
             }
         }
         task.resume()

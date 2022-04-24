@@ -26,11 +26,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkWeatherManager.onCompletion = { currentWeather in
+            print(currentWeather.cityName)
+        }
         networkWeatherManager.fetchCurrentWeather(forCity: "London")
         
-        
     }
-
-
+    
 }
 
