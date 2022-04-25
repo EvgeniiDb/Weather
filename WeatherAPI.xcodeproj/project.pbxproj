@@ -119,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				E6490E4328146FDA00E587DB /* NetworkWeatherManager.swift */,
-				E6490E4728148D5400E587DB /* CurrentWeatherData.swift */,
 				E6490E492814940B00E587DB /* CurrentWeather.swift */,
+				E6490E4728148D5400E587DB /* CurrentWeatherData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
